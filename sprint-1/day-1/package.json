@@ -1,0 +1,18 @@
+{
+  "name": "day-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts_1":"tsc src/ts_1.ts",
+    "ts_2":"tsc src/ts_2.ts",
+    "ts_3":"tsc src/ts_3.ts",
+    "node_1":"node src/ts_1.js",
+    "node_2":"node src/ts_2.js",
+    "node_3":"node src/ts_3.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
