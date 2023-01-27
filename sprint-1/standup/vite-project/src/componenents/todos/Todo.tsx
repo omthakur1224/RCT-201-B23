@@ -37,7 +37,7 @@ const getTodo=()=>{
 return (
     <div>
       <TodoInput addTodo={addTodo}/>
-      <TodoList data={data}/>
+      <TodoList data={data} setData={setData}/>
     </div>
   )
 }
