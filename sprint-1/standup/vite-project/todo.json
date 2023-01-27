@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "React Stanup",
+      "status": "Pending"
+    },
+    {
+      "title": "Dinner",
+      "status": "Pending",
+      "id": 2
+    },
+    {
+      "title": "Tea",
+      "status": "Pending",
+      "id": 3
+    }
+  ]
+}

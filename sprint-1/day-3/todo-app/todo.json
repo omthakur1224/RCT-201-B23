@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "title": "lunch",
+      "id": 1,
+      "status": "Pending"
+    },
+    {
+      "title": "react learning",
+      "status": "Pending",
+      "id": 2
+    },
+    {
+      "title": "react learning",
+      "status": "Pending",
+      "id": 3
+    },
+    {
+      "title": "html",
+      "status": "Pending",
+      "id": 4
+    },
+    {
+      "title": "react ts",
+      "status": "Pending",
+      "id": 5
+    }
+  ]
+}
