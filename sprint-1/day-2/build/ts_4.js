@@ -26,4 +26,5 @@ let user1 = phoneBook({
     },
     phone: 8988021422
 });
+let user2 = phoneBook(person2);
 console.log("user1", personsArray);
