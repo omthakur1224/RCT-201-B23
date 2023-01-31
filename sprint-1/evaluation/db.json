@@ -9,35 +9,6 @@
       "id": 2,
       "name": "USA",
       "capital": "Washington DC"
-    },
-    {
-      "name": "",
-      "capital": "Karachi",
-      "country-name": "Pak",
-      "id": 3
-    },
-    {
-      "name": "",
-      "capital": "Karachi",
-      "country-name": "Pak",
-      "id": 4
-    },
-    {
-      "name": "",
-      "capital": "Karachi",
-      "country-name": "Pak",
-      "id": 5
-    },
-    {
-      "name": "",
-      "capital": "Karachi",
-      "country-name": "Pak",
-      "id": 6
-    },
-    {
-      "name": "Himachal",
-      "capital": "Shimla",
-      "id": 7
     }
   ]
 }
