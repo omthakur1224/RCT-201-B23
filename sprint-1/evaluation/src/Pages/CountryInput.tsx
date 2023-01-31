@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { getCountriesAPI } from '../api';
 import { Country } from './Countries'
 
 interface CountryInputProps{
@@ -28,7 +29,8 @@ const CountryInput = ({addCountryDetails}:CountryInputProps) => {
   //  call the addCountryDetails function, inside this.
   const handleSubmit = (e:React.FormEvent<HTMLFormElement>) :void=> {
     e.preventDefault();
-    addCountryDetails(country)
+    addCountryDetails(country);
+    // getCountriesAPI().then()
   }
   return (
     <div>

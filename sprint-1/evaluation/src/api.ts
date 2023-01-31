@@ -13,4 +13,7 @@ export const getCountriesAPI = async()=> {
 };
 
 //make a request to add a country to the db.json file, using JSON server
-export const addCountryDetailsAPI = (country:Country) => {};
+export const addCountryDetailsAPI = async(country:Country) => {
+    let response:AxiosResponse<Country[]>=await axios.post('http://localhost:8080/countries',country)
+    return response.data;
+};
