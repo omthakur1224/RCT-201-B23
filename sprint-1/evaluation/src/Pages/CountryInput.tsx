@@ -9,6 +9,7 @@ interface CountryInputProps{
 const CountryInput = ({addCountryDetails}:CountryInputProps) => {
   // create a form, to take the country, and capital
   const [country,setCountry]=useState<Country>({name:"",capital:""});
+  
   const handleCountryChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const {id,value}=e.target;
     console.log(id,value);
@@ -35,7 +36,7 @@ const CountryInput = ({addCountryDetails}:CountryInputProps) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='country-name' id='country-name' onChange={handleCountryChange} />
+        <input type="text" placeholder='country-name' id='name' onChange={handleCountryChange} />
         <input type="text" placeholder='capital' id='capital'onChange={handleCapitalChange}/>
         <input type="submit" value='Add Country' />
       </form>
