@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const useAPI=(apiFn)=>{
    const [loading,setLoading]=useState(false);
-   const [error,setError]=useState(false);
+   const [error,setError]=useState("");
    const [success,setSuccess]=useState(false);
    const [data,setData]=useState([]);
 

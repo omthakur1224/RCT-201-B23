@@ -21,6 +21,7 @@ const Posts = () => {
   // const [data, setData] = useState([]);
   const {execute,data,setData,error,loading,success}=useAPI(getPosts);
   
+  
   // const getData = async () => {
   //   try {
   //     setLoading(true);
@@ -49,10 +50,18 @@ const Posts = () => {
     setData(data.filter((p) => p.id !== id));
   };
 
-  // useEffect(() => {
-  //   getData();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    if(error){
+      toast({
+        title: `Post added successfully`,
+        status: "success", 
+        duration: 3000,
+        isClosable: true,
+        position: "top-right",
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
 
   return (
     <Box>

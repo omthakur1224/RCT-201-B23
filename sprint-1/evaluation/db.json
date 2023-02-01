@@ -9,6 +9,11 @@
       "id": 2,
       "name": "USA",
       "capital": "Washington DC"
+    },
+    {
+      "name": "Himachal",
+      "capital": "Shimla",
+      "id": 3
     }
   ]
 }
