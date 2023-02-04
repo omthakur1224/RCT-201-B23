@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "To do JS",
+      "status": "Pending"
+    },
+    {
+      "title": "react",
+      "status": "pending",
+      "id": 2
+    },
+    {
+      "title": "ddfdf",
+      "status": "pending",
+      "id": 3
+    }
+  ]
+}
