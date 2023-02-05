@@ -6,7 +6,7 @@ const TodoInput = ({handleTodo}) => {
   const [todo,setTodo]=useState("");
   const dispatch=useDispatch()
   return (
-    <div>
+    <div style={{display:"flex","flexDirection":"row"}}>
       <input type={'text'} 
       placeholder='title' 
       id='todo'
