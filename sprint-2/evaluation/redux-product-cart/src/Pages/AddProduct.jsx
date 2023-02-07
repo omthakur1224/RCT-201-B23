@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { addProduct } from "../Redux/action";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const [product,setProduct]=useState({
@@ -10,6 +11,7 @@ const AddProduct = () => {
         "category":"",
         "cartQuantity":0
     });
+ const navigate=useNavigate()
  const dispatch=useDispatch();
 
  const handleChange=(e)=>{
@@ -28,7 +30,7 @@ const AddProduct = () => {
         "category":""
     })
     )
-   
+  navigate("/")
  }
     return (
         <div>
