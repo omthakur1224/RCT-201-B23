@@ -18,14 +18,3 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-// ensures that every test case only runs for a certain amount of time
- const exitTestCaseAfter = 3; // mins
- let timeoutId;
- beforeEach(() => {
-   timeoutId = setTimeout(() => {
-     throw new Error("Test taking tooooo long!");
-   }, exitTestCaseAfter * 60 * 1000);
- });
- afterEach(() => {
-   clearTimeout(timeoutId);
- });

@@ -1,14 +1,7 @@
-import { legacy_createStore, applyMiddleware } from "redux";
-import { reducer } from "./reducer";
+// NOTE: use this store variable to create a store.
+export const store = {};
 
-const customMiddleware = (store) => (next) => (action) => {
-  if (typeof action === "function") {
-    return action(store.dispatch);
-  }
-  return next(action);
-};
-
-const store = legacy_createStore(reducer, applyMiddleware(customMiddleware));
-
-export { store };
-export { customMiddleware };
+// NOTE: Do not remove this code,its used for calculating your score, if removed it will give you zero marks
+if (window.Cypress) {
+  window.store = store;
+}

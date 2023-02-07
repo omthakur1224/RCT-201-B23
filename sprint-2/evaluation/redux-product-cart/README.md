@@ -1,124 +1,110 @@
-## React Redux Thunk with Mock Server
+### Problem Statement
 
-#### Problem Statement
+Create the following application: Products Dashboard using the boilerplate provided in the zip file
 
-Create the following application the boilerplate code provided .
-
-## Submission Instructions [Please note]
-
-## Maximum Marks - 10
-
-- The Submission should not contain spaces, for example /rct-101 folder/eval will not work
-- Do not push node_modules and package_lock.json to github
+## Maximum Marks - 14
 
 ```
- ✅ able to submit the app - 1 mark ( minimum score )
- ✅ should have basic structure  - 1 mark
- ✅ Should get initial todos by GET request - 3 marks
- ✅ check if the customMiddleware function can handle dispatched functions instead of action objects- 0.5 marks
- ✅ check if the customMiddleware function can handle dispatched action objects - 0.5 marks
- ✅ should add todo, by chaining POST request, and GET request together - 4 marks
+✅ able to submit the application - 1 mark (minimum score)
+✅ Should make a GET request to show 10 Products in the UI - 1 mark
+✅ Should have all the details in the Card component - 1 mark
+✅ Should redirect to Add page, when the button on Navbar is clicked - 1 mark
+✅ Should be able to fill the data in the AddProduct page - 1 mark
+✅ Should be able to make a POST request to add the data - 2 mark
+✅ The user should be re-directed to homepage, after adding the Product, and it should be visible in the UI - 1
+✅ Should be able to make a PATCH request, and Update the Redux store, to increase the count in the Product Card - 1 mark
+✅ Should be able to make a PATCH request, and Update the Redux store, to decrease the count in the Product Card - 1 mark
+✅ The count on the navbar should also reflect the count, on adding different products - 1 mark
+✅ The cart page should only show the products that have some cartQuantity value - 1 mark
+✅ Should be able to make a DELETE request, and remove it from the redux store - 1 mark
+✅ Should navigate the user to the ProductsPage after Deleting the data and the product should be removed from the UI as well - 1 mark
 ```
 
-## Installation
+ ### Note : submitting just boilerplate code will give you testfailed error as the store is connected ,You need to connect the redux store.
+### Getting Started:
 
-- you can use any node version that works for you ( 14+ )
-- please make sure you do not push package-lock.json
+Unzip the rct201.b23.c2-redux boilerplate file, and COPY the contents in your folder.
+Run the following commands
 
-- Download and unzip the boilerplate file and then copy the "**contents**" of the unzipped file in the Masai Folder.
-- Navigate to the Masai Folder, in VS Code.
-- Run the following commands inside,
-  - `npm install`
-  - `npm start`
-  - `npm run server` -> to start the json-server
-- **_Note_**:
+- npm install
+- npm start
+- npm run server -> to start the json-server
+
+##### NOTE:
 
 1. Libraries needs to be installed by yourself
-2. Make sure that the json-server is up and running at port `8080`
+2. Make sure that the json-server is up and running at port 8080
 3. Create a .env file. Include `REACT_APP_JSON_SERVER_PORT=8080` in it
-4. Use `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}` as the json-server url where ever you use `http://localhost:8080`
+4. You need to restart the react server once the env file is updated
+5. Use `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}` as the json-server url
+6. Using Redux-thunk is mandatory.
 
-### Not following the above instructions will lead your testcases to fail
+### Component Structure:
 
-#### Steps
+- App
+  - Navbar
+  - MainRoutes
+    - Path: /, Page: Homepage
+      - Productpage (renders ProductCard component)
+    - Path: /add, Page: AddProduct
+    - Path: /cart, Page: CartPage
 
-### Understanding Component Structure
+### Redux
 
-- src
-  - App.jsx
-  - App.css
-  - Components
-    - Todo.jsx
-    - TodoInput.jsx
-    - TodoList.jsx
-  - index.js
-- cypress
-  - e2e
-    - react-redux-thunk.cy.js (test file)
+- action.js
+- actionTypes.js
+- reducer.js
+- store.js
 
 ### JSON Data:
 
-- db.json file is included in the boilerplate zip file, with the initial todos data. **Do not overwrite/modify this data**
+db.json file is included in the boilerplate zip file and here db.json , with the initial products data (Do Not Override/Modify this data format)
 
-### Features to build:
+### Steps:
 
-## TodoInput.jsx
+1. The User should be able to,
 
-- This Component should have
-  - an input with `data-testid = todo-input`
-  - a button with text `Add Todo` and data-testid =`todo-add-btn`
-- On clicking the button, call the addTodo function, by passing it inside the dispatch function, with the todo payload, as the argument.
-- After successfully adding the todo, make a GET request, to fetch all the data, by dipsatching the getTodos function.
-- the task object should have the following fields
+   - make a requests to ‘http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}’
+   - fetch the data from db.json file and store it in redux store
+   - display the data in a Productpage file (inside Homepage) - from the redux store, when the React application loads on the homepage.
 
-  ```
-    {
-      title: the task typed in input filed,
-      status:false
-    }
-   id will be generated by mock server by default
-  ```
+2. On clicking the Add Product button on the Navbar component, a new page should open up on the path (/add)
 
-## Todo.jsx
+   - The AddProduct page has all the UI elements already present. The user should be able to add all the details for the product like title, image URL, category, etc.
+   - On clicking the 'Add' button, the POST API request must be made, with the product payload, and it should reflect on the db.json file.
+   - The data should be modified in the Redux store as well, after the POST request is successful.
+   - After successfully adding the data, the user should be navigated to the homepage UI, where he can see the updated data.
 
-- on page loads make a GET request (use axios) to fetch all the data present in the db.json file.
+3. On clicking the Delete button on the table row, the DELETE API request should be made, and the particular product should be removed from the db.json file
 
-## TodoList.jsx
+   - The data should be removed from the Redux store as well, after the DELETE API request
+   - The deleted product should be removed from the UI as well.
 
-- Get the Todo data from the Redux store.
-- map through the Todo array and display the task name along with the status
-- the parent div which holds all the todos should have data-testid = `todos-list-wrapper`
-- the div that holds the todos should have data-testid=`single-todo` attribute.
+4. On clicking the "+" button, and "-" button on the ProductCard component, the cartQuantity of that product should increase and decrease respectively.
 
-  - eg., Learn Redux - False
+   - Make a PATCH API request, with the increased count in the payload on clicking the "+" button. The data should reflect in the db.json file as well. Same for "-" button, with with decreased count.
+   - The cartQuantity data of that product should be updated in the Redux store as well.
+   - The cartQuantity of a product should not exceed more than 3 or less than 0 (the default cartQuantity of each product is 0)
+   - The number on the cart icon, on the navbar, should reflect, the products, which has atleast 1 cartQuantity.
 
-  ![](https://i.imgur.com/9Wq1Nt0.png)
+5. The Cart page, should show only those products, which have atleast 1 cartQuantity.
+   - You should reuse the ProductCard component for this.
 
-## store.js
+### Screenshots
 
-- Create a custom Middleware to check if an action is a function and if it is, invoke the action, and pass the dispatch methods into it
-- else, return next(action)
-- a user should be able to dispatch functions/async methods in the following manner:
-
-```dispatch( getTodos() )
-//pseudo code
-function getTodos = payload => dispatch => {
-    dispatch request
-    return axios(config)
-        .then(res => dispatch success)
-        .catch(err => dispatch error)
-}
-```
+- ![Imgur](https://i.imgur.com/CGda0Hn.png)
+- ![Imgur](https://i.imgur.com/plTZpcR.png)
+- ![Imgur](https://i.imgur.com/jzDnE2N.png)
 
 ### General Instructions:
 
-- Do not remove `data-testid=’xxx’` from anywhere inside the code. They are the test inputs, removing them, may lead to low scores.
+- Do not remove data-cy=’xxx’ from anywhere inside the code. They are the test inputs, removing them, may lead to low scores.
 - Do not change the current folder structure, and names of components provided.
 - Only use the data present in the db.json file, and do not modify the data in the json file.
+- You need to submit Github Link as well as Netlify/Vercel Link on Course Platform
+- Ensure that the GitHub link is correct. Share the link from where the package.json exists
 
-#### General guidelines
+### General guidelines
 
-- The system on cp.masaischool.com may take between 1-20 minutes for responding,
-- so we request you to read the problem carefully and debug before itself
-- we also request you not to just submit it last minute
-- try to keep one submission at a time
+- The system on cp.masaischool.com may take between 1-20 minutes for responding
+- So we request you to read the problem carefully and debug before itself.

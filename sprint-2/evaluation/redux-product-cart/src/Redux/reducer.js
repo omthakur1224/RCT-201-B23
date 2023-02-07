@@ -1,13 +1,10 @@
-
 const initialState = {
-  todos: [],
-  isLoading: false,
-  isError: false,
+    products: [],
+    isLoading: false,
+    isError: false,
+  };
+  
+export const reducer = (state = initialState) => {
+return state;
 };
-
-//complete the reducer function 
-const reducer = (state = initialState) => {
-  return state;
-};
-
-export { reducer };
+  
