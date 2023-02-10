@@ -1,5 +1,6 @@
 import React from 'react'
 import {Route,Routes} from 'react-router-dom'
+import RequireAuth from '../component/RequireAuth'
 import AddProduct from './AddProduct'
 import Cart from './Cart'
 import EditProduct from './EditProduct'
@@ -11,6 +12,12 @@ const MainRoutes = () => {
     <Routes>
         <Route path='/' element={<Homepage/>} />
         <Route path='/cart' element={<Cart/>} />
+
+        <Route path='/addproduct' element={
+            <RequireAuth>
+              <AddProduct/>
+            </RequireAuth>
+        }/>
         <Route path='/addproduct' element={<AddProduct/>}/>
         <Route path='/product/:productId' element={<ProductPage/>}/>
         <Route path='/product/:productId/edit' element={<EditProduct/>}/>

@@ -28,3 +28,7 @@ export interface Cart extends Order{
     title:string,
     image:string;
 }
+export interface LoginData{
+    email:string,
+    password:string
+}

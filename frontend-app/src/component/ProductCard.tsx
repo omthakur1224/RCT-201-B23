@@ -11,6 +11,7 @@ import {
   } from '@chakra-ui/react';
   import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
   import { FiShoppingCart } from 'react-icons/fi';
+import { Product } from '../utils/types';
 //   
   const data = {
     isNew: true,
@@ -27,37 +28,11 @@ import {
     numReviews: number;
   }
   
-//   function Rating({ rating, numReviews }: RatingProps) {
-//     return (
-//       <Box d="flex" alignItems="center">
-//         {Array(5)
-//           .fill('')
-//           .map((_, i) => {
-//             const roundedRating = Math.round(rating * 2) / 2;
-//             if (roundedRating - i >= 1) {
-//               return (
-//                 <BsStarFill
-//                   key={i}
-//                   style={{ marginLeft: '1' }}
-//                   color={i < rating ? 'teal.500' : 'gray.300'}
-//                 />
-//               );
-//             }
-//             if (roundedRating - i === 0.5) {
-//               return <BsStarHalf key={i} style={{ marginLeft: '1' }} />;
-//             }
-//             return <BsStar key={i} style={{ marginLeft: '1' }} />;
-//           })}
-//         <Box as="span" ml="2" color="gray.600" fontSize="sm">
-//           {numReviews} review{numReviews > 1 && 's'}
-//         </Box>
-//       </Box>
-//     );
-//   }
+
   
-  function ProductCard() {
+  function ProductCard({id,price,title,image}:Product) {
     return (
-      <Flex p={50} w="full" alignItems="center" justifyContent="center">
+      <Flex p={50} w="fit-content" alignItems="center" justifyContent="center">
         <Box
           bg={useColorModeValue('white', 'gray.800')}
           maxW="sm"
@@ -76,7 +51,9 @@ import {
           )}
   
           <Image
-            src={data.imageURL}
+            boxSize={400}
+            objectFit={'contain'}
+            src={image}
             alt={`Picture of ${data.name}`}
             roundedTop="lg"
           />
@@ -96,7 +73,7 @@ import {
                 as="h4"
                 lineHeight="tight"
                 isTruncated>
-                {data.name}
+                {title}
               </Box>
               <Tooltip
                 label="Add to cart"
@@ -113,10 +90,10 @@ import {
             <Flex justifyContent="space-between" alignContent="center">
               {/* <Rating rating={data.rating} numReviews={data.numReviews} /> */}
               <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-                <Box as="span" color={'gray.600'} fontSize="lg">
-                  £
+                <Box as="span" color={'gray.600'} fontSize="lg" fontStyle='bold'>
+                  MRP: 
                 </Box>
-                {data.price.toFixed(2)}
+                {price.toFixed(2)}
               </Box>
             </Flex>
           </Box>

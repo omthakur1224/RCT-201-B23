@@ -14,7 +14,7 @@ let initState={
     isLoading:false,
     isError:false,
 }
- const appReducer=(state:AppState=initState, action:AppAction):AppState=>{
+ const AppReducer=(state:AppState=initState, action:AppAction):AppState=>{
 //    let {type}=action;
       switch(action.type){
         
@@ -41,4 +41,4 @@ let initState={
     }
 }
 
-export {appReducer}
+export {AppReducer}
