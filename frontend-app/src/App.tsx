@@ -12,14 +12,7 @@ function App() {
     <div className="App">
       <Navbar/>
         <MainRoutes/>
-        <Flex flexWrap={'wrap'}>
-              {
-                data.length > 0&& data.map((item,index)=>{
-                  return <ProductCard key={item.id} {...item}/>
-                }
-                )
-              }
-    </Flex>
+        
     </div>
   );
 }

@@ -51,8 +51,8 @@ import { Product } from '../utils/types';
           )}
   
           <Image
-            boxSize={400}
-            objectFit={'contain'}
+            boxSize={300}
+            objectFit='contain'
             src={image}
             alt={`Picture of ${data.name}`}
             roundedTop="lg"

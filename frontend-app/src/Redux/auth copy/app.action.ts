@@ -2,6 +2,7 @@ import { getApi } from '../../utils/app.api';
 import { Product } from '../../utils/types';
 import { APP_DISPATCH } from '../store';
 import * as types from './app.actiontypes';
+import { getProducts } from './../app/app.action';
 
 
 export interface IproductRequest{
@@ -37,10 +38,10 @@ const productSuccess=(data :Product[]):IproductSuccess=>{
 }
 
 
-export const getProducts=():any=>async(dispatch:APP_DISPATCH)=>{
+export const getProducts=(getProductsParam?:{params:{category:string[]}}):any=>async(dispatch:APP_DISPATCH)=>{
     dispatch(productRequest());
     try{
-        let data=await getApi();
+        let data=await getApi(param);
         if(data){
             return dispatch(productSuccess(data))
         }

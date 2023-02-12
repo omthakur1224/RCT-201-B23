@@ -1,9 +1,10 @@
 import axios,{AxiosResponse} from "axios"
 import { Product, LoginData } from "./types";
+import { getProducts } from './../Redux/app/app.action';
 
-export const getApi=async()=>{
+export const getApi=async(getProductParam?:{params:{category:string[]}})=>{
     try{
-        let response: AxiosResponse <Product[]> =await axios.get("http://localhost:8080/products")
+        let response: AxiosResponse <Product[]> =await axios.get("http://localhost:8080/products",params)
         return response.data;
     }
      catch(err){
