@@ -7,7 +7,8 @@ import PerPost from "./PerPost";
 const Posts = () => {
  const posts=useSelector(store=>store.posts);
  const dispatch=useDispatch();
-
+ const {activePage,perPage}=useSelector(store=>store)
+ console.log(activePage,perPage,"active,perPage")
  useEffect(()=>{
       dispatch(getPosts())
     },[])
@@ -19,9 +20,11 @@ const Posts = () => {
       </div>
       {/* map through the posts here, inside the PerPost component. Also, take care of showing the Posts based on the Pagination data */}
       {
-        posts&&posts.map((post,index)=>
-          <PerPost key={index} {...post}/>
-          )
+        posts&&posts
+        .filter((item,index)=>
+              item.id>((activePage*perPage)-perPage)&& (item.id<=(activePage*perPage)) )
+        .map((post,index)=>
+          <PerPost key={index} {...post}/>)
         }
     </div>
   );

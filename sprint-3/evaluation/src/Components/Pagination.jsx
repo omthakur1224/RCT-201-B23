@@ -18,9 +18,7 @@ const dispatch=useDispatch();
  }
 
  useEffect(()=>{
-   let search={
-    params:{}
-   }
+ 
  })
   return (
     <div className="paginationWrapper" data-testid='paginationWrapper'>
