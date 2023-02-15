@@ -9,7 +9,7 @@ const Pagination = () => {
  
  const [searchParams, setSearchParams] = useSearchParams();
 
- const activePage=useSelector(store=>store.activePage);
+ const {activePage,perPage}=useSelector(store=>store);
 
 const dispatch=useDispatch();
 
@@ -18,8 +18,14 @@ const dispatch=useDispatch();
  }
 
  useEffect(()=>{
- 
- })
+  let params={};
+  if(activePage!=1){
+
+    params.page=activePage;
+  }
+  setSearchParams(params)
+ },[activePage])
+
   return (
     <div className="paginationWrapper" data-testid='paginationWrapper'>
 

@@ -1,7 +1,7 @@
 //Write the API calling functions and action creator functions here
 
 import axios from "axios"
-import { ADD_POST, APP_ERROR, APP_LOADING, GET_POSTS, HANDLE_PAGE_CHANGE } from "./actionTypes"
+import { ADD_POST, APP_ERROR, APP_LOADING, GET_POSTS, HANDLE_PAGE_CHANGE, TOGGLE_LIKE } from "./actionTypes"
 
 export const getPosts=()=>async(dispatch)=>{
  dispatch({type:APP_LOADING})
@@ -21,11 +21,14 @@ export const addPost=(post)=>async(dispatch)=>{
         dispatch({type:APP_ERROR})
     }
 }
-export const deletePost=()=>(dispatch)=>{
-
+export const toggleLike=(payload)=>(dispatch)=>{
+    console.log(payload,'toggleReq')
     dispatch({type:APP_LOADING})
     try{
-
+        axios.patch(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/posts/${payload.id}`,payload)
+        .then((res)=>
+        dispatch({type:TOGGLE_LIKE,payload})
+        )
     }catch(err){
         dispatch({type:APP_ERROR})
     }
@@ -34,6 +37,7 @@ export const updatePage=(newPage)=>(dispatch)=>{
 
     dispatch({type:APP_LOADING})
     try{
+       
         dispatch({type:HANDLE_PAGE_CHANGE,payload:newPage})
     }catch(err){
         dispatch({type:APP_ERROR})

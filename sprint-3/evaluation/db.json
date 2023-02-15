@@ -3,42 +3,42 @@
     {
       "id": 1,
       "title": "First post",
-      "liked": false
+      "liked": true
     },
     {
       "id": 2,
       "title": "qui est esse",
-      "liked": false
+      "liked": true
     },
     {
       "id": 3,
       "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-      "liked": false
+      "liked": true
     },
     {
       "id": 4,
       "title": "eum et est occaecati",
-      "liked": false
+      "liked": true
     },
     {
       "id": 5,
       "title": "nesciunt quas odio",
-      "liked": false
+      "liked": true
     },
     {
       "id": 6,
       "title": "dolorem eum magni eos aperiam quia",
-      "liked": false
+      "liked": true
     },
     {
       "id": 7,
       "title": "magnam facilis autem",
-      "liked": false
+      "liked": true
     },
     {
       "id": 8,
       "title": "dolorem dolore est ipsam",
-      "liked": false
+      "liked": true
     },
     {
       "id": 9,
