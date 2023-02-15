@@ -1,4 +1,4 @@
-import { ADD_POST, GET_POSTS } from "./actionTypes";
+import { ADD_POST, GET_POSTS, HANDLE_PAGE_CHANGE } from "./actionTypes";
 
 const initialState = {
   posts: [],
@@ -21,6 +21,12 @@ const reducer = (state=initialState,{type,payload}) => {
       return{
         ...state,
         posts:[...state.posts,payload],
+        isLoading:false
+      }
+    case HANDLE_PAGE_CHANGE:
+      return{
+        ...state,
+        activePage:payload,
         isLoading:false
       }
     default:

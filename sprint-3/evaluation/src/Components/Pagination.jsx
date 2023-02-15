@@ -1,29 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import "./CSS Files/Pagination.css";
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { updatePage } from "../Redux/action";
 
 const Pagination = () => {
- let arr=[1,2,3,4,5,6,7,8,9,10];
+ 
+ const [searchParams, setSearchParams] = useSearchParams();
+
+ const activePage=useSelector(store=>store.activePage);
+
+const dispatch=useDispatch();
+
+ const handlePage=(newPage)=>{
+     dispatch(updatePage(newPage))
+ }
+
+ useEffect(()=>{
+   let search={
+    params:{}
+   }
+ })
   return (
     <div className="paginationWrapper" data-testid='paginationWrapper'>
-        <button
+
+       {activePage>1&&<button
+          onClick={()=>handlePage(activePage-1)}
           className="prevBtn"
           data-testid='prevBtn'
         >
           Prev
-        </button>
+        </button>}
       
       {/* render the buttons here, directly. Ensure, each button has the "data-testid='btn'" prop. Add the className, activeBtn, if the current button is the activePage*/}
     {
-      arr.map((item,)=>
-        <button data-testid='btn' key={item} onClick={""}>{item}</button>
+      Array(10).fill(0).map((item,index)=>
+        <button data-testid='btn' 
+        key={index+1} 
+        className={index+1==activePage?"activeBtn":""}
+        onClick={()=>handlePage(index+1)}
+        >{index+1}</button>
       )
     }
-        <button
+        {activePage<10&&<button
+          onClick={()=>handlePage(activePage+1)}
           className="nextBtn"
           data-testid='nextBtn'
         >
           Next
-        </button>
+        </button>}
       
     </div>
   );

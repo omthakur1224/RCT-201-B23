@@ -1,7 +1,7 @@
 //Write the API calling functions and action creator functions here
 
 import axios from "axios"
-import { ADD_POST, APP_ERROR, APP_LOADING, GET_POSTS } from "./actionTypes"
+import { ADD_POST, APP_ERROR, APP_LOADING, GET_POSTS, HANDLE_PAGE_CHANGE } from "./actionTypes"
 
 export const getPosts=()=>async(dispatch)=>{
  dispatch({type:APP_LOADING})
@@ -30,11 +30,11 @@ export const deletePost=()=>(dispatch)=>{
         dispatch({type:APP_ERROR})
     }
 }
-export const updatePost=()=>(dispatch)=>{
+export const updatePage=(newPage)=>(dispatch)=>{
 
     dispatch({type:APP_LOADING})
     try{
-
+        dispatch({type:HANDLE_PAGE_CHANGE,payload:newPage})
     }catch(err){
         dispatch({type:APP_ERROR})
     }
