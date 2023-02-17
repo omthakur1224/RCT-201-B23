@@ -20,14 +20,13 @@ const Filter = () => {
   }
 
   useEffect(()=>{
-
     //params will accept filter as string of arr
-    let params:{filter?:string[]}={};
+    let params={};
     if(filterValue.length){
       //it is checking if filterValue that is an arr
       //have any value then
       //assign it to params obj
-      params.filter=filterValue
+      params=filterValue
     }
     setSearchParams(params)
   },[filterValue])

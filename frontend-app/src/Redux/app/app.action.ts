@@ -3,7 +3,6 @@ import { Product } from '../../utils/types';
 import { APP_DISPATCH } from '../store';
 import * as types from './app.actiontypes';
 
-
 export interface IproductRequest{
     type:typeof types.GET_PRODUCT_REQUEST;
     payload?: boolean;
@@ -37,7 +36,8 @@ const productSuccess=(data :Product[]):IproductSuccess=>{
 }
 
 
-export const getProducts=():any=>async(dispatch:APP_DISPATCH)=>{
+export const getProducts=()
+     :any=>async(dispatch:APP_DISPATCH)=>{
     dispatch(productRequest());
     try{
         let data=await getApi();

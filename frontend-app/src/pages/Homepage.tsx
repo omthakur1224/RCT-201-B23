@@ -22,9 +22,9 @@ const Homepage = () => {
           category:searchParams.getAll('filter')
         }
       }
-      dispatch(getProducts(getProductParams))
+      dispatch(getProducts())
     }
-    dispatch(getProducts())
+
   },[location.search])
   return (
     <div>

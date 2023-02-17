@@ -2,8 +2,18 @@
   "todos": [
     {
       "title": "react",
-      "status": true,
+      "status": false,
       "id": 1
+    },
+    {
+      "title": "react",
+      "status": false,
+      "id": 2
+    },
+    {
+      "title": "typescript",
+      "status": true,
+      "id": 3
     }
   ]
 }

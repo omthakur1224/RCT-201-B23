@@ -8,13 +8,13 @@ export const addTodos=(todo)=>async(dispatch)=>{
       "title":todo,
       "status":false
     }
-    console.log(process.env.REACT_APP_URL)
-    let response= await axios.post(`http://localhost:${process.env.REACT_APP_URL}/todos`,x)
+    // console.log(process.env.REACT_APP_PORT)
+    let response= await axios.post(`http://localhost:8080/todos`,x)
     .then((res)=>dispatch({type:ADD_TODOs,payload:res.data}))
   }
 
 export const getTodos=()=>async(dispatch)=>{
-    let response =await axios.get(`http://localhost:${process.env.REACT_APP_URL}/todos`)
+    let response =await axios.get(`http://localhost:8080/todos`)
     .then((res)=>dispatch({type:GET_TODOS,payload:res.data}))
   
 }

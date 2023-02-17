@@ -58,7 +58,7 @@
     {
       "id": 12,
       "title": "in quibusdam tempore odit est dolorem",
-      "liked": false
+      "liked": true
     },
     {
       "id": 13,
@@ -73,7 +73,7 @@
     {
       "id": 15,
       "title": "eveniet quod temporibus",
-      "liked": false
+      "liked": true
     },
     {
       "id": 16,
